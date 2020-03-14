@@ -1,0 +1,39 @@
+version: '3'
+services:
+  ldap:
+    container_name: ldap
+    build:
+      context: openldap
+    ports:
+      - '389:389'
+    environment:
+      LDAP_DOMAIN: "example.org"
+      LDAP_ADMIN_PASSWORD: "password"
+  idp-tomcat:
+    container_name: idp-tomcat
+    build:
+      context: idp-tomcat
+    depends_on:
+      - ldap
+    ports:
+      - 8009:8009
+    environment:
+      LDAP_HOST: "ldap"
+      TOMCAT_AJP_PORT_NUMBER: "8009"
+  idp-httpd:
+    container_name: idp-httpd
+    build:
+      context: idp-httpd
+    ports:
+      - 443:443
+    environment:
+      TOMCAT_HOST: "idp-tomcat"
+  sp:
+    container_name: sp
+    build:
+      context: sp
+    depends_on:
+      - idp-httpd
+      - idp-tomcat
+    ports:
+      - 10443:443

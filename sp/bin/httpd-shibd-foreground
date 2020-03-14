@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Shibboleth IdPが起動するまでに時間がかかって、Shibboleth SP起動時にIdPのメタデータ取得に
+# 失敗するときがあるため、Shibboleth IdPのメタデータのURLにアクセスして200が返ってくるまで待つ。
+status=0
+
+while [ $status != '200' ]
+do
+  status=`curl -s http://idp-httpd/idp/shibboleth -o /dev/null -w '%{http_code}\n'`
+  sleep 1
+  echo "retrieving IdP Metada..."
+done
+
+chmod +x /etc/shibboleth/shibd-redhat
+
+# Shibboleth SPを起動する。
+/etc/shibboleth/shibd-redhat start
+
+# Apacheを起動する。
+exec httpd -DFOREGROUND

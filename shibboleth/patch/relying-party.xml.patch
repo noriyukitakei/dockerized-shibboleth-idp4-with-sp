@@ -1,0 +1,11 @@
+--- relying-party.xml.org	2020-03-14 00:00:34.000000000 +0900
++++ relying-party.xml	2020-03-14 00:01:02.000000000 +0900
+@@ -22,7 +22,7 @@
+     <bean id="shibboleth.UnverifiedRelyingParty" parent="RelyingParty">
+         <property name="profileConfigurations">
+             <list>
+-            <!-- <bean parent="SAML2.SSO" p:encryptAssertions="false" /> -->
++            <bean parent="SAML2.SSO" p:encryptAssertions="false" />
+             </list>
+         </property>
+     </bean>

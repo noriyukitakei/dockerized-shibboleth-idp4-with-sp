@@ -1,0 +1,18 @@
+--- attribute-map.xml.org	2020-03-14 13:46:04.872502000 +0000
++++ attribute-map.xml	2020-03-14 13:46:47.376107000 +0000
+@@ -82,7 +82,6 @@
+     -->
+     
+     <!-- Older LDAP-defined attributes (SAML 2.0 names followed by SAML 1 names)... -->
+-    <!--
+     <Attribute name="urn:oid:2.5.4.3" id="cn"/>
+     <Attribute name="urn:oid:2.5.4.4" id="sn"/>
+     <Attribute name="urn:oid:2.5.4.42" id="givenName"/>
+@@ -138,7 +137,6 @@
+     <Attribute name="urn:mace:dir:attribute-def:ou" id="ou"/>
+     <Attribute name="urn:mace:dir:attribute-def:businessCategory" id="businessCategory"/>
+     <Attribute name="urn:mace:dir:attribute-def:physicalDeliveryOfficeName" id="physicalDeliveryOfficeName"/>
+-    -->
+ 
+     <!-- SCHAC attributes... -->
+     <!--
