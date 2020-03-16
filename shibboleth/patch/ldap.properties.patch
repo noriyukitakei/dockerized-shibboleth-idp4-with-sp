@@ -1,5 +1,5 @@
---- ldap.properties.orig	2020-03-14 16:08:28.000000000 +0900
-+++ ldap.properties	2020-03-14 16:11:59.000000000 +0900
+--- conf/ldap.properties.orig	2020-03-16 12:44:04.000000000 +0900
++++ conf/ldap.properties	2020-03-16 12:44:06.000000000 +0900
 @@ -3,10 +3,11 @@
  
  ## Authenticator strategy, either anonSearchAuthenticator, bindSearchAuthenticator, directAuthenticator, adAuthenticator

@@ -1,5 +1,5 @@
---- attribute-resolver.xml.orig	2020-03-14 16:57:00.000000000 +0900
-+++ attribute-resolver.xml	2020-03-14 23:28:06.000000000 +0900
+--- conf/attribute-resolver.xml.orig	2020-03-16 12:44:06.000000000 +0900
++++ conf/attribute-resolver.xml	2020-03-16 12:44:06.000000000 +0900
 @@ -46,6 +46,11 @@
          <InputDataConnector ref="computed" attributeNames="computedId"/>
      </AttributeDefinition>

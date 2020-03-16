@@ -16,7 +16,8 @@ RUN wget -q https://shibboleth.net/downloads/identity-provider/$idp_version/shib
 COPY bin/ /usr/local/bin/
 
 # Shibbolethの設定ファイル(attribute-resolverなど)に当てるパッチをコンテナにコピーする。
-COPY patch/* /tmp/
+RUN mkdir /tmp/patch
+COPY patch/* /tmp/patch/
 
 # コンテナ起動時にShibbolethの設定ファイルを作成するためのスクリプトを実行する。
 RUN chmod 750 /usr/local/bin/init-idp.sh

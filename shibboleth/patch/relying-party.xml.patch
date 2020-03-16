@@ -1,5 +1,5 @@
---- relying-party.xml.org	2020-03-14 00:00:34.000000000 +0900
-+++ relying-party.xml	2020-03-14 00:01:02.000000000 +0900
+--- conf/relying-party.xml.orig	2020-03-16 12:44:04.000000000 +0900
++++ conf/relying-party.xml	2020-03-16 12:44:06.000000000 +0900
 @@ -22,7 +22,7 @@
      <bean id="shibboleth.UnverifiedRelyingParty" parent="RelyingParty">
          <property name="profileConfigurations">

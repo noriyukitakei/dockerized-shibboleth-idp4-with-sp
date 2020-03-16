@@ -1,5 +1,8 @@
 FROM httpd:2.4.41
 
+RUN apt-get update && \
+    apt-get install openssl
+
 # TomcatとAJP連携するための設定ファイルを入れる
 ADD conf/httpd-shib.conf /usr/local/apache2/conf/extra/
 
@@ -12,6 +15,7 @@ RUN sed -i -e 's/#LoadModule proxy_module modules\/mod_proxy.so/LoadModule proxy
     sed -i -e 's/#Include conf\/extra\/httpd-ssl.conf/Include conf\/extra\/httpd-ssl.conf/g' /usr/local/apache2/conf/httpd.conf && \
     echo "Include conf/extra/httpd-shib.conf" >> /usr/local/apache2/conf/httpd.conf
 
-# ApacheのSSL証明書をコンテナにコピーする。
-ADD certs/server.crt /usr/local/apache2/conf/server.crt
-ADD certs/server.key /usr/local/apache2/conf/server.key
+# ApacheのSSL証明書を作成する。
+COPY bin/gencert.sh /tmp
+RUN chmod +x /tmp/gencert.sh
+RUN /tmp/gencert.sh
