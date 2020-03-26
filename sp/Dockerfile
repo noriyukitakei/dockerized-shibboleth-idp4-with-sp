@@ -17,12 +17,13 @@ RUN mkdir /var/www/html/secure
 COPY app/testsp.php /var/www/html/secure
 
 # Shibboleth SPモジュールの設定ファイルに当てるパッチをコンテナにコピーする。
-COPY patch/* /tmp/
+RUN mkdir /tmp/patch
+COPY patch/* /tmp/patch/
 
 # Shibboleth SPモジュールの設定ファイルにパッチを当てる。
-RUN cd /etc/shibboleth && \
-    patch -b < /tmp/shibboleth2.xml.patch && \
-    patch -b < /tmp/attribute-map.xml.patch
+COPY bin/init-sp.sh /usr/local/bin/
+RUN chmod 750 /usr/local/bin/init-sp.sh && \
+    /usr/local/bin/init-sp.sh
 
-# # Shibboleth SPモジュールを起動する。
+# Shibboleth SPモジュールを起動する。
 CMD ["/usr/local/bin/httpd-shibd-foreground"]
