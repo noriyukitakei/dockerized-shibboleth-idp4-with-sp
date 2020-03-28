@@ -15,7 +15,15 @@ RUN sed -i -e 's/#LoadModule proxy_module modules\/mod_proxy.so/LoadModule proxy
     sed -i -e 's/#Include conf\/extra\/httpd-ssl.conf/Include conf\/extra\/httpd-ssl.conf/g' /usr/local/apache2/conf/httpd.conf && \
     echo "Include conf/extra/httpd-shib.conf" >> /usr/local/apache2/conf/httpd.conf
 
+# certsディレクトリに置いてある証明書をコンテナにコピーする。
+# コンテナ側ではこの証明書を優先して使うようにスクリプトで制御する。
+RUN mkdir /tmp/certs
+COPY certs/* /tmp/certs/
+
 # ApacheのSSL証明書を作成する。
+# もしcertsディレクトリに証明書が置いてあった場合にはそちらを優先して使用して、
+# もしそうでなければ、自己証明書を自動で作成するようgencert.shで制御する。
 COPY bin/gencert.sh /tmp
 RUN chmod +x /tmp/gencert.sh
 RUN /tmp/gencert.sh
+
