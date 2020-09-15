@@ -1,7 +1,7 @@
 FROM centos:centos7
 
 # Shibbolethのバージョンを指定する。
-ENV idp_version=4.0.0
+ENV idp_version=4.0.1
 
 # JDKをインストールする。
 RUN yum -y update && \

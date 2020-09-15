@@ -1,5 +1,5 @@
---- conf/ldap.properties.orig	2020-03-16 12:44:04.000000000 +0900
-+++ conf/ldap.properties	2020-03-16 12:44:06.000000000 +0900
+--- conf/ldap.properties.orig	2020-09-15 20:00:28.000000000 +0900
++++ conf/ldap.properties	2020-09-15 20:06:40.000000000 +0900
 @@ -3,10 +3,11 @@
  
  ## Authenticator strategy, either anonSearchAuthenticator, bindSearchAuthenticator, directAuthenticator, adAuthenticator
@@ -9,12 +9,12 @@
  ## Connection properties ##
 -idp.authn.LDAP.ldapURL                          = ldap://localhost:10389
 -#idp.authn.LDAP.useStartTLS                     = true
-+idp.authn.LDAP.ldapURL = ldap://${LDAP_HOST}:389
++idp.authn.LDAP.ldapURL                          = ldap://${LDAP_HOST}:389
 +idp.authn.LDAP.useStartTLS                     = false
- #idp.authn.LDAP.useSSL                          = false
  # Time in milliseconds that connects will block
  #idp.authn.LDAP.connectTimeout                  = PT3S
-@@ -28,11 +29,11 @@
+ # Time in milliseconds to wait for responses
+@@ -27,11 +28,11 @@
  # Search DN resolution, used by anonSearchAuthenticator, bindSearchAuthenticator
  # for AD: CN=Users,DC=example,DC=org
  idp.authn.LDAP.baseDN                           = ou=people,dc=example,dc=org
