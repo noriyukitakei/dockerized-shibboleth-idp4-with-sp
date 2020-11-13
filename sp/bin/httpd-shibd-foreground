@@ -6,7 +6,7 @@ status=0
 
 while [ $status != '200' ]
 do
-  status=`curl -s http://idp-httpd/idp/shibboleth -o /dev/null -w '%{http_code}\n'`
+  status=`curl -s http://idp:8080/idp/shibboleth -o /dev/null -w '%{http_code}\n'`
   sleep 1
   echo "retrieving IdP Metada..."
 done

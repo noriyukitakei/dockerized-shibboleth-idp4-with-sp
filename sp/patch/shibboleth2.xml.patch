@@ -17,7 +17,7 @@
 -        <MetadataProvider type="XML" validate="true"
 -	            url="http://federation.org/federation-metadata.xml"
 +        <MetadataProvider type="XML" validate="false"
-+	            url="http://idp-httpd/idp/shibboleth"
++	            url="http://idp:8080/idp/shibboleth"
                backingFilePath="federation-metadata.xml" maxRefreshDelay="7200">
 -            <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
 -            <MetadataFilter type="Signature" certificate="fedsigner.pem" verifyBackup="false"/>
