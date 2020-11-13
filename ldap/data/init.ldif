@@ -1,0 +1,11 @@
+dn: ou=people,dc=example,dc=org
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=test001,ou=people,dc=example,dc=org
+uid: test001
+cn: test001
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: test001
