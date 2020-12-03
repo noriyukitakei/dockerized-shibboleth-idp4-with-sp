@@ -1,6 +1,7 @@
 version: '3'
 services:
   ldap:
+    image: ldap
     container_name: ldap
     build:
       context: ldap
@@ -10,6 +11,7 @@ services:
       LDAP_DOMAIN: "example.org"
       LDAP_ADMIN_PASSWORD: "password"
   idp:
+    image: idp
     container_name: idp
     build:
       context: idp
@@ -21,6 +23,7 @@ services:
     environment:
       LDAP_HOST: "ldap"
   sp:
+    image: sp
     container_name: sp
     build:
       context: sp
