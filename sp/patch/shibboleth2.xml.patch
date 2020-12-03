@@ -1,5 +1,5 @@
---- shibboleth2.xml.orig	2019-03-26 06:34:59.000000000 +0000
-+++ shibboleth2.xml	2020-03-14 13:45:53.594943000 +0000
+--- shibboleth2.xml.orig	2020-04-13 20:09:21.000000000 +0000
++++ shibboleth2.xml	2020-09-16 05:06:42.746637000 +0000
 @@ -11,7 +11,7 @@
  
      <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
@@ -9,24 +9,14 @@
          cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
  
          <!--
-@@ -69,18 +69,14 @@
-         -->
+@@ -65,9 +65,7 @@
+             styleSheet="/shibboleth-sp/main.css"/>
  
-         <!-- Example of remotely supplied batch of signed metadata. -->
+         <!-- Example of locally maintained metadata. -->
 -        <!--
--        <MetadataProvider type="XML" validate="true"
--	            url="http://federation.org/federation-metadata.xml"
-+        <MetadataProvider type="XML" validate="false"
-+	            url="http://idp:8080/idp/shibboleth"
-               backingFilePath="federation-metadata.xml" maxRefreshDelay="7200">
--            <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
--            <MetadataFilter type="Signature" certificate="fedsigner.pem" verifyBackup="false"/>
-             <DiscoveryFilter type="Blacklist" matcher="EntityAttributes" trimTags="true" 
-               attributeName="http://macedir.org/entity-category"
-               attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
-               attributeValue="http://refeds.org/category/hide-from-discovery" />
-         </MetadataProvider>
+         <MetadataProvider type="XML" validate="true" path="partner-metadata.xml"/>
 -        -->
  
-         <!-- Example of remotely supplied "on-demand" signed metadata. -->
+         <!-- Example of remotely supplied batch of signed metadata. -->
          <!--
+

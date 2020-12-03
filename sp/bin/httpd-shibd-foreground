@@ -6,10 +6,13 @@ status=0
 
 while [ $status != '200' ]
 do
-  status=`curl -s http://idp:8080/idp/shibboleth -o /dev/null -w '%{http_code}\n'`
+  status=`curl -ks $IDP_METADATA_URL -o /dev/null -w '%{http_code}\n'`
   sleep 1
   echo "retrieving IdP Metada..."
 done
+
+# IdPのメタデータを取得する。$IDP_HOSTは環境変数にてIdPのホスト名を設定する。
+curl -k $IDP_METADATA_URL > /etc/shibboleth/partner-metadata.xml
 
 chmod +x /etc/shibboleth/shibd-redhat
 
