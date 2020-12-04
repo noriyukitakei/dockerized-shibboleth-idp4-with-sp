@@ -15,3 +15,4 @@ fi
 # httpsの待受ポートを10443に変更する。
 sed -i -e 's/Listen 443 https/Listen 10443 https/g' /etc/httpd/conf.d/ssl.conf 
 sed -i -e 's/<VirtualHost _default_:443>/<VirtualHost _default_:10443>/g' /etc/httpd/conf.d/ssl.conf
+sed -i -e 's/Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
