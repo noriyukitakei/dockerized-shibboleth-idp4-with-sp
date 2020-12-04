@@ -30,4 +30,4 @@ services:
     depends_on:
       - idp
     ports:
-      - 10443:443
+      - 10443:10443
