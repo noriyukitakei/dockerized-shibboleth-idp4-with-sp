@@ -11,23 +11,18 @@ services:
       LDAP_DOMAIN: "example.org"
       LDAP_ADMIN_PASSWORD: "password"
   idp:
-    image: idp
+    image: shibreg.azurecr.io/idp:1.0.0
     container_name: idp
     build:
       context: idp
-    depends_on:
-      - ldap
     ports:
       - 443:8443
-      - 80:8080
     environment:
       LDAP_HOST: "ldap"
   sp:
-    image: sp
+    image: shibreg.azurecr.io/sp:1.0.0
     container_name: sp
     build:
       context: sp
-    depends_on:
-      - idp
     ports:
       - 10443:10443
