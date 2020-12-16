@@ -1,15 +1,15 @@
 version: '3'
 services:
-#  ldap:
-#    image: ldap
-#    container_name: ldap
-#    build:
-#      context: ldap
-#    ports:
-#      - '389:389'
-#    environment:
-#      LDAP_DOMAIN: "example.org"
-#      LDAP_ADMIN_PASSWORD: "password"
+  ldap:
+    image: ldap
+    container_name: ldap
+    build:
+      context: ldap
+    ports:
+      - '389:389'
+    environment:
+      LDAP_DOMAIN: "example.org"
+      LDAP_ADMIN_PASSWORD: "password"
   idp:
     image: shibreg.azurecr.io/idp:1.0.0
     container_name: idp
