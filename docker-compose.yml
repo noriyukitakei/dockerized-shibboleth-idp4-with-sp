@@ -11,7 +11,7 @@ services:
       LDAP_DOMAIN: "example.org"
       LDAP_ADMIN_PASSWORD: "password"
   idp:
-    image: shibreg.azurecr.io/idp:1.0.0
+    image: idp 
     container_name: idp
     build:
       context: idp
@@ -20,7 +20,7 @@ services:
     environment:
       LDAP_HOST: "ldap"
   sp:
-    image: shibreg.azurecr.io/sp:1.0.0
+    image: sp
     container_name: sp
     build:
       context: sp
