@@ -17,8 +17,6 @@ services:
       context: idp
     ports:
       - 443:8443
-    environment:
-      LDAP_HOST: "ldap"
   sp:
     image: sp
     container_name: sp
